@@ -34,6 +34,11 @@ public class PlayerControls : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        if(collision.transform.tag == "Obstacle")
+        {
+            GameObject.FindObjectOfType<spawnManager>().isGameOver = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)

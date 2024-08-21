@@ -5,15 +5,23 @@ using UnityEngine;
 public class obstacle : MonoBehaviour
 {
     public float moveSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float leftBound;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        if(GameObject.FindObjectOfType<spawnManager>().isGameOver == false)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+        
+
+        if(transform.position.x < leftBound)
+        {
+            GameObject.FindObjectOfType<spawnManager>().score++;
+            Debug.Log(GameObject.FindObjectOfType<spawnManager>().score);
+            Destroy(gameObject);
+
+        }
     }
 }

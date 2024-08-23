@@ -16,6 +16,7 @@ public class PlayerControls : MonoBehaviour
     public ParticleSystem dirtSplatter;
 
     [SerializeField] spawnManager sm;
+    public AudioClip jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,9 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             anim.SetTrigger("Jump_trig");
             lemmyAnimator.SetTrigger("jump");
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            GetComponent<AudioSource>().pitch = Random.Range(0.75f, 1.25f);
+            
         }
 
         

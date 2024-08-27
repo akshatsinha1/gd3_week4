@@ -19,7 +19,7 @@ public class obstacle : MonoBehaviour
         if(transform.position.x < leftBound)
         {
             GameObject.FindObjectOfType<spawnManager>().score++;
-            Debug.Log(GameObject.FindObjectOfType<spawnManager>().score);
+            
             Destroy(gameObject);
 
         }

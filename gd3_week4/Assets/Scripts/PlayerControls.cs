@@ -36,7 +36,6 @@ public class PlayerControls : MonoBehaviour
             lemmyAnimator.SetTrigger("jump");
             GetComponent<AudioSource>().PlayOneShot(jumpSound);
             GetComponent<AudioSource>().pitch = Random.Range(0.75f, 1.25f);
-            
         }
 
         
@@ -53,7 +52,7 @@ public class PlayerControls : MonoBehaviour
         if(collision.transform.tag == "Obstacle")
         {
             sm.isGameOver = true;
-            Debug.Log("collided");
+           
         }
     }
 
